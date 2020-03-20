@@ -1,9 +1,11 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
+    id 'signing'
 }
 
-group 'com.mrsalwater'
-version '1.0.0'
+group = 'com.mrsalwater'
+version = '1.0.0'
 
 sourceCompatibility = 1.8
 
@@ -18,6 +20,60 @@ dependencies {
 jar {
     manifest {
         attributes('Implementation-Title': project.name,
-                   'Implementation-Version': project.version)
+                'Implementation-Version': project.version)
     }
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+
+            pom {
+                name = 'Kapteyn'
+                description = 'A Java library for reverse engineering Java class files and Jars'
+                url = 'https://github.com/mrsalwater/Kapteyn'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id = 'mrsalwater'
+                        name = 'mrsalwater'
+                        email = 'mrsalwatercode@gmail.com'
+                        url = 'mrsalwater.com'
+                    }
+                }
+
+                scm {
+                    connection = 'scm:git:git://github.com/mrsalwater/Kapteyn.git'
+                    developerConnection = 'scm:git:ssh://github.com:mrsalwater/Kapteyn.git'
+                    url = 'https://github.com/mrsalwater/Kapteyn'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = ossrhRepoUrl
+            credentials {
+                username = ossrhUsername
+                password = ossrhPassword
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.maven
 }
