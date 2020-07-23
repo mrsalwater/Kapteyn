@@ -138,8 +138,8 @@ public enum Instruction {
     FMUL("fmul", 106, OperandType.NONE),
     DMUL("dmul", 107, OperandType.NONE),
 
-    LDIV("ldiv", 109, OperandType.NONE),
     IDIV("idiv", 108, OperandType.NONE),
+    LDIV("ldiv", 109, OperandType.NONE),
     FDIV("fdiv", 110, OperandType.NONE),
     DDIV("ddiv", 111, OperandType.NONE),
 
@@ -165,7 +165,7 @@ public enum Instruction {
     LAND("land", 127, OperandType.NONE),
 
     IOR("ior", 128, OperandType.NONE),
-    LIOR("lior", 129, OperandType.NONE),
+    LOR("lor", 129, OperandType.NONE),
     IXOR("ixor", 130, OperandType.NONE),
     LXOR("lxor", 131, OperandType.NONE),
 
@@ -191,7 +191,7 @@ public enum Instruction {
     I2C("i2c", 146, OperandType.NONE),
     I2S("i2s", 147, OperandType.NONE),
 
-    LCMO("lcmp", 148, OperandType.NONE),
+    LCMP("lcmp", 148, OperandType.NONE),
     FCMPL("fcmpl", 149, OperandType.NONE),
     FCMPG("fcmpg", 150, OperandType.NONE),
     DCMPL("dcmpl", 151, OperandType.NONE),

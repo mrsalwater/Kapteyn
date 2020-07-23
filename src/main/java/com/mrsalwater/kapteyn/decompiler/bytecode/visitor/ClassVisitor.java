@@ -80,8 +80,8 @@ public final class ClassVisitor extends Visitor<ClassFile> {
             writer.append(AttributeUtil.getAttributeSourceFile(constantPool, attributes.get(AttributeSourceFile.class))).indent();
         }
 
-        if (attributes.has(AttributeDebugExtension.class)) {
-            writer.append(AttributeUtil.getAttributeDebugExtension(attributes.get(AttributeDebugExtension.class))).indent();
+        if (attributes.has(AttributeSourceDebugExtension.class)) {
+            writer.append(AttributeUtil.getAttributeSourceDebugExtension(attributes.get(AttributeSourceDebugExtension.class))).indent();
         }
 
         if (attributes.has(AttributeSynthetic.class)) {
@@ -114,7 +114,6 @@ public final class ClassVisitor extends Visitor<ClassFile> {
             }
         }
     }
-
 
     private void visitInnerAttributes(ClassFile classFile) throws CorruptClassFileException {
         Attributes attributes = classFile.getAttributes();

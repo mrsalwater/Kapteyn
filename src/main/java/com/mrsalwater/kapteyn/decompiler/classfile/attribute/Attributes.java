@@ -30,7 +30,6 @@ public final class Attributes {
             }
         }
 
-
         throw new NullPointerException();
     }
 

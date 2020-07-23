@@ -30,7 +30,7 @@ public final class ClassFileParser {
 
     public ClassFile parse() throws ClassFileException {
         if (classFileReader.readU4() != 0xCAFEBABE) {
-            throw new CorruptClassFileException("Data has not the class file format: Invalid magic item");
+            throw new CorruptClassFileException("Data has not the class file format (Invalid magic item)");
         }
 
         int minorVersion = classFileReader.readU2();
@@ -285,7 +285,7 @@ public final class ClassFileParser {
                         debugExtension[j] = classFileReader.readU1();
                     }
 
-                    attributes[i] = new AttributeDebugExtension(debugExtension);
+                    attributes[i] = new AttributeSourceDebugExtension(debugExtension);
                     break;
                 case "LineNumberTable":
                     int lineNumberTableLength = classFileReader.readU2();

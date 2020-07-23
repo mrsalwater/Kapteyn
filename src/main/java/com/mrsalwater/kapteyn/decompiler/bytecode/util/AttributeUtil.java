@@ -21,8 +21,8 @@ public final class AttributeUtil {
         return "// source file: ".concat(sourceFileName);
     }
 
-    public static String getAttributeDebugExtension(AttributeDebugExtension attributeDebugExtension) {
-        int[] debugExtension = attributeDebugExtension.getDebugExtension();
+    public static String getAttributeSourceDebugExtension(AttributeSourceDebugExtension attributeSourceDebugExtension) {
+        int[] debugExtension = attributeSourceDebugExtension.getDebugExtension();
         String debugInformation = new String(debugExtension, 0, debugExtension.length); // TODO: 18.01.2020 Check if the string is correctly parsed
 
         return "// debug information: ".concat(debugInformation);

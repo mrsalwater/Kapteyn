@@ -1,10 +1,10 @@
 package com.mrsalwater.kapteyn.decompiler.classfile.attribute;
 
-public final class AttributeDebugExtension implements Attribute {
+public final class AttributeSourceDebugExtension implements Attribute {
 
     private final int[] debugExtension;
 
-    public AttributeDebugExtension(int[] debugExtension) {
+    public AttributeSourceDebugExtension(int[] debugExtension) {
         this.debugExtension = debugExtension;
     }
 
