@@ -256,7 +256,11 @@ public final class MethodVisitor extends Visitor<Method> {
             } else if (c == 'L') {
                 reference = true;
             } else {
-                parameters.add(ClassFileUtil.getPrimitiveType(c));
+                builder.append(ClassFileUtil.getPrimitiveType(c));
+                if (array) builder.append("[]");
+
+                parameters.add(builder.toString());
+                builder.setLength(0);
             }
         }
 
